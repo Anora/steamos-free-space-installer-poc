@@ -1,1 +1,40 @@
+Example layout before SteamOS install:
 
+Windows is installed first.
+Unallocated/free space exists after the Windows partitions.
+
+Do not copy these device names blindly. Your system will be different.
+
+Example command:
+
+```
+lsblk -f
+```
+
+Example output:
+
+```
+NAME        FSTYPE FSVER LABEL        UUID                                 MOUNTPOINTS
+nvme0n1
+├─nvme0n1p1 ntfs         Recovery     XXXX-XXXX
+├─nvme0n1p2 vfat   FAT32 SYSTEM       XXXX-XXXX
+├─nvme0n1p3
+├─nvme0n1p4 ntfs         Windows      XXXX-XXXX
+└─nvme0n1p5 ntfs         Recovery     XXXX-XXXX
+```
+
+Example disk layout:
+
+```
+/dev/nvme0n1p1    Windows Recovery
+/dev/nvme0n1p2    Windows EFI System Partition
+/dev/nvme0n1p3    Microsoft Reserved Partition
+/dev/nvme0n1p4    Windows
+/dev/nvme0n1p5    Windows Recovery/OEM
+free space        Intended SteamOS install target
+```
+
+Important:
+
+The free space is not shown directly by `lsblk -f`.
+Use the script scan/dry-run output, KDE Partition Manager, GParted, Windows Disk Management, or another trusted partition tool to confirm the unallocated space.
