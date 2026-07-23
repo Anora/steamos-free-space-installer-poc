@@ -144,9 +144,12 @@ This script attempts to create that layout inside the selected free space.
 
 ## License
 
-The scripts and documentation in this repository are provided under the license included in this repo.
+This project’s original scripts and documentation are licensed under the Apache License 2.0. See the `LICENSE` file for details.
 
-This project does not claim ownership of SteamOS, Steam, Valve tools, or any Valve-provided recovery files.
+This repository is unofficial and is not affiliated with Valve, Steam, or SteamOS.
+
+SteamOS, Steam, Steam Deck, and Valve-related recovery tools remain the property of their respective owners. This project does not claim ownership of Valve-provided files or trademarks.
+
 
 ## Disclaimer
 
