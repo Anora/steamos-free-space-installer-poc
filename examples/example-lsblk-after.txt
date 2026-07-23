@@ -1,1 +1,51 @@
+Example layout after SteamOS install:
 
+Windows partitions are still present.
+SteamOS partitions were created inside the previous free/unallocated space.
+
+Do not copy these device names blindly. Your system will be different.
+
+Example command:
+
+```
+lsblk -f
+```
+
+Example output:
+
+```
+NAME         FSTYPE FSVER LABEL      UUID                                 MOUNTPOINTS
+nvme0n1
+├─nvme0n1p1  ntfs         Recovery   XXXX-XXXX
+├─nvme0n1p2  vfat   FAT32 SYSTEM     XXXX-XXXX
+├─nvme0n1p3
+├─nvme0n1p4  ntfs         Windows    XXXX-XXXX
+├─nvme0n1p5  ntfs         Recovery   XXXX-XXXX
+├─nvme0n1p6  vfat   FAT32 esp        XXXX-XXXX                           /esp
+├─nvme0n1p7  vfat   FAT32 efi        XXXX-XXXX                           /efi
+├─nvme0n1p8  vfat   FAT32 efi        XXXX-XXXX
+├─nvme0n1p9  btrfs        rootfs     XXXX-XXXX
+├─nvme0n1p10 btrfs        rootfs     XXXX-XXXX
+├─nvme0n1p11 ext4         var        XXXX-XXXX
+├─nvme0n1p12 ext4         var        XXXX-XXXX
+└─nvme0n1p13 ext4         home       XXXX-XXXX                           /home
+```
+
+Example SteamOS partition labels:
+
+```
+esp
+efi-A / efi
+efi-B / efi
+rootfs-A / rootfs
+rootfs-B / rootfs
+var-A / var
+var-B / var
+home
+```
+
+Important:
+
+Partition numbers may be different on your system.
+Labels may also display slightly differently depending on the tool used.
+Always verify with the script scan/dry-run output before installing.
